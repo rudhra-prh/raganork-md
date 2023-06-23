@@ -31,7 +31,7 @@ Module({
   desc: 'Is bot alive?'
 }, (async (message, match) => {
   var myid = message.client.user.id.split(":")[0]
-  const stars = ['✦','✯','✯','✰','◬','✵'];
+  const stars = ['❏','⎆'];
   const star = stars[Math.floor(Math.random()*stars.length)];
   function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
@@ -58,27 +58,25 @@ Module({
     for (var x of cmd_obj[n]){
         i=i+1
         var newn = n.charAt(0).toUpperCase()+n.replace(n.charAt(0),"")
-        final+=`${final.includes(newn)?'':'\n\n╭════〘 *_'+newn+"_* 〙════⊷❍\n"}\n┃${star}│ _${i}. ${x.trim()}_${cmd_obj[n]?.indexOf(x)===(cmd_obj[n]?.length-1) ?`\n┃${star}╰─────────────────❍\n╰══════════════════⊷❍`:''}`
+        final+=`${final.includes(newn)?'':'\n\n╭────❮ *'+newn+"* ❯────╮\n"}\n├${star}│ ${i}. ${x.trim()}${cmd_obj[n]?.indexOf(x)===(cmd_obj[n]?.length-1) ?`\n├${star}╰───────────────⊷\n╰───────────────────⦿`:''}`
     }
   } 
   let cmdmenu = final.trim();
-  var menu = `╭═══〘 ${BOT_INFO.split(";")[0]} 〙═══⊷❍
-┃${star}╭──────────────
-┃${star}│
-┃${star}│ _*Owner*_ : ${BOT_INFO.split(";")[1]}
-┃${star}│ _*User*_ : ${message.senderName.replace( /[\r\n]+/gm, "" )}
-┃${star}│ _*Mode*_ : ${MODE}
-┃${star}│ _*Server*_ : ${__dirname.startsWith('/skl')?"Heroku":"Private (VPS)"}
-┃${star}│ _*Available RAM*_ : ${used} of ${total}
-┃${star}│ _*Version*_ : ${config.VERSION}
-┃${star}│
-┃${star}│
-┃${star}│  ▎▍▌▌▉▏▎▌▉▐▏▌▎
-┃${star}│  ▎▍▌▌▉▏▎▌▉▐▏▌▎
-┃${star}│   ${BOT_INFO.split(";")[0]}
-┃${star}│ 
-┃${star}╰───────────────
-╰═════════════════⊷
+  var menu = `╭═══〘 ${BOT_INFO.split(";")[0]} 〙═══⊷⦿
+│    ╭─────────────⊷
+│    │
+│〄│ *Owner* : ${BOT_INFO.split(";")[1]}
+│〄│ *User* : ${message.senderName.replace( /[\r\n]+/gm, "" )}
+│〄│ *Mode* : ${MODE}
+│〄│ *Server* : ${__dirname.startsWith('/skl')?"Heroku":"Private (VPS)"}
+│〄│ *RAM* : ${used} of ${total}
+│〄│ *Version* : ${config.VERSION}
+│    │
+│    │    █║▌║▌║║▌║ █
+│    │     ${BOT_INFO.split(";")[0]}
+│    │ 
+│    ╰─────────────⊷
+╰═════════════════⊷⦿
 
 ${cmdmenu}`
 try {
