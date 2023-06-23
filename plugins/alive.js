@@ -58,7 +58,7 @@ Module({
     for (var x of cmd_obj[n]){
         i=i+1
         var newn = n.charAt(0).toUpperCase()+n.replace(n.charAt(0),"")
-        final+=`${final.includes(newn)?'':'\n\n╭────❮ *'+newn+"* ❯────╮\n"}\n├${star}│ ${i}. ${x.trim()}${cmd_obj[n]?.indexOf(x)===(cmd_obj[n]?.length-1) ?`\n├${star}╰───────────────⊷\n╰───────────────────⦿`:''}`
+        final+=`${final.includes(newn)?'':'\n╭────❮ *'+newn+"* ❯────╮\n"}\n├${star}│ ${i}. ${x.trim()}${cmd_obj[n]?.indexOf(x)===(cmd_obj[n]?.length-1) ?`\n├${star}╰───────────────⊷\n╰───────────────────⦿`:''}`
     }
   } 
   let cmdmenu = final.trim();
@@ -73,6 +73,7 @@ Module({
 │    │
 │    │    █║▌║▌║║▌║ █
 │    │     ${BOT_INFO.split(";")[0]}
+│    │ 
 │    ╰─────────────⊷
 ╰═════════════════⊷⦿
 
