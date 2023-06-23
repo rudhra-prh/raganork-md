@@ -64,7 +64,6 @@ Module({
   let cmdmenu = final.trim();
   var menu = `╭═══〘 ${BOT_INFO.split(";")[0]} 〙═══⊷⦿
 │    ╭─────────────⊷
-│    │
 │〄│ *Owner* : ${BOT_INFO.split(";")[1]}
 │〄│ *User* : ${message.senderName.replace( /[\r\n]+/gm, "" )}
 │〄│ *Mode* : ${MODE}
@@ -74,7 +73,6 @@ Module({
 │    │
 │    │    █║▌║▌║║▌║ █
 │    │     ${BOT_INFO.split(";")[0]}
-│    │ 
 │    ╰─────────────⊷
 ╰═════════════════⊷⦿
 
