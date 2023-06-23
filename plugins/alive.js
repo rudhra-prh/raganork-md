@@ -31,7 +31,7 @@ Module({
   desc: 'Is bot alive?'
 }, (async (message, match) => {
   var myid = message.client.user.id.split(":")[0]
-  const stars = ['❏','⎆'];
+  const stars = ['❏','❏'];
   const star = stars[Math.floor(Math.random()*stars.length)];
   function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
