@@ -148,16 +148,18 @@ Module({
         match = match[1].toLowerCase()
         switch(match){
             case 'approve all':{
+                await message.sendReply(`_Approving ${approvalJids.length} participants._`)
                 for (let x of approvalJids){
                     await message.client.groupRequestParticipantsUpdate(message.jid,[x],"approve")
-                    await delay(1000)
+                    await delay(900)
                 }
                 break;
             }
             case 'reject all':{
+                await message.sendReply(`_Rejecting ${approvalJids.length} participants._`)
                 for (let x of approvalJids){
                     await message.client.groupRequestParticipantsUpdate(message.jid,[x],"reject")
-                    await delay(1000)    
+                    await delay(900)    
                 }
                 break;
             }
@@ -185,7 +187,7 @@ Module({
     fromMe: true,
     desc: Lang.LEAVE_DESC
 }, (async (message, match) => {
-    
+    if (!message.isGroup) return await message.sendReply("_Leave from where? This is a group command bruh!_")
     return await message.client.groupLeave(message.jid);
 }))
 // QUOTED - COPYRIGHT: souravkl11/raganork
