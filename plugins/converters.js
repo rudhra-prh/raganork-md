@@ -36,7 +36,7 @@ Module({
     var savedFile = await message.reply_message.download();
     var exif = {
         author: STICKER_DATA.split(";")[1] || "",
-        packname: message.senderName,
+        packname: STICKER_DATA.split(";")[0] || "",
         categories: STICKER_DATA.split(";")[2] || "😂",
         android: "https://github.com/souravkl11/Raganork-md/",
         ios: "https://github.com/souravkl11/Raganork-md/"
@@ -62,7 +62,7 @@ Module({
         .on('end', async () => {
             await message.client.sendMessage(message.jid, {
                 audio: fs.readFileSync('./temp/tomp3.mp3'),
-                mimetype: 'audio/mp4',
+                mimetype: 'audio/mpeg',
                 ptt: false
             }, {
                 quoted: message.quoted
