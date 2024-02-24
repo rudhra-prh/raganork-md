@@ -10,7 +10,7 @@ require('../main').Module({
      use: 'utility',
      desc: 'Creates fancy text fonts'
  }, (async (message, match) => {
-     if (!match[1] && !message.reply_message.message) return await message.sendReply('Reply to a text or type text after command with a numeric code\n_Example: .fancy 10 Hello_\n                      .fancy Hello world\n                      .fancy <reply> 13\n\n'+String.fromCharCode(8206).repeat(4001)+fancy.list('Text here',fancy));
+     if (!match[1] && !message.reply_message.message) return await message.sendReply('ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴛᴇxᴛ ᴏʀ ᴛʏᴘᴇ ᴛᴇxᴛ ᴀғᴛᴇʀ ᴄᴏᴍᴍᴀɴᴅ ᴡɪᴛʜ ᴀ ɴᴜᴍᴇʀɪᴄ ᴄᴏᴅᴇ.\nᴇxᴀᴍᴘʟᴇ: .fancy 10 Hello\n                      .fancy Hello Brother\n                      .fancy <reply> 29\n\n'+String.fromCharCode(8206).repeat(4001)+fancy.list('Fancy Text Here',fancy));
     const id = match[1].match(/\d/g)?.join('')
      try {
         if (id === undefined && !message.reply_message){
@@ -18,6 +18,6 @@ require('../main').Module({
         }
         return await message.sendReply(fancy.apply(fancy[parseInt(id)-1],message.reply_message.text || match[1].replace(id,'')))    
     } catch {
-        return await message.sendReply('_No such style :(_')
+        return await message.sendReply('ɴᴏ sᴜᴄʜ sᴛʏʟᴇ :(')
      }
  }))
