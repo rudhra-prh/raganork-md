@@ -32,7 +32,7 @@ let {setWarn,resetWarn,mentionjid} = require('./misc/misc');
 Module({pattern: 'warn ?(.*)', fromMe: false,use: 'group', desc:Lang.WARN_DESC}, (async (m, mat) => { 
 let adminAccesValidated = ADMIN_ACCESS ? await isAdmin(m,m.sender) : false;
 if (m.fromOwner || adminAccesValidated) {
-if (mat[1] === "reset") return await m.sendReply("*Wrong command! Use _.reset warn_*")
+if (mat[1] === "reset") return await m.sendReply("*ᴡʀᴏɴɢ ᴄᴏᴍᴍᴀɴᴅ! ᴜsᴇ .ʀᴇsᴇᴛ ᴡᴀʀɴ*")
 if (m.message.includes(Lang.REMAINING)) return;
 var user = m.mention[0] || m.reply_message.jid
 if (!user) return await m.sendReply(Lang.NEED_USER)
@@ -79,9 +79,9 @@ Module({on: 'text', fromMe: false}, (async (m, mat) => {
     if (!user) return await m.sendReply(Lang.NEED_USER)
     if (!m.jid.endsWith('@g.us')) return await m.sendReply(Lang.GROUP_COMMAND)
     let warn = await setWarn(m.jid,user,parseInt(WARN))
-    let reason = "sent link";
+    let reason = "sᴇɴᴛ ʟɪɴᴋ";
     let mentionedUser = m.senderName.split("\n").length > 1 ? '+'+user.split("@")[0] : mentionjid(user)
-    let msg = "_*⚠ Antilink warning ⚠*_\n" +
+    let msg = "*⚠ ᴀɴᴛɪʟɪɴᴋ ᴡᴀʀɴɪɴɢ ⚠*\n" +
     Lang.USER.format(mentionedUser)+ '\n' +
     Lang.REASON.format(reason)+ '\n' +
     Lang.REMAINING.format(warn) + '\n'; 
@@ -108,7 +108,7 @@ Module({on: 'text', fromMe: false}, (async (m, mat) => {
       let warn = await setWarn(m.jid,user,parseInt(WARN))
       let reason = `"${thatWord}"`
       let mentionedUser = m.senderName.split("\n").length > 1 ? '+'+user.split("@")[0] : mentionjid(user)
-      let msg = "_*⚠ Antiword warning ⚠*_\n" +
+      let msg = "*⚠ ᴀɴᴛɪᴡᴏʀᴅ ᴡᴀʀɴɪɴɢ ⚠*\n" +
       Lang.USER.format(mentionedUser)+ '\n' +
       Lang.REASON.format(reason)+ '\n' +
       Lang.REMAINING.format(warn) + '\n'; 
