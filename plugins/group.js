@@ -230,7 +230,7 @@ Module({
     if (x === "undefined") x = "others"
     try { return x.charAt(0).toUpperCase() + x.slice(1) } catch { return x }
     }
-    let final_msg = "_Messages sent by each users_\n\n";
+    let final_msg = "ᴍᴇssᴀɢᴇs sᴇɴᴛ ʙʏ ᴇᴀᴄʜ ᴜsᴇʀs\n\n";
     for (let user of users){
     if (Object.keys(msgs).includes(user)){
     let count = msgs[user].total
@@ -239,9 +239,9 @@ Module({
     let types = msgs[user].type
     let types_msg = "\n"
     for (var type in types){
-        types_msg+=`_${flc(type)}: *${types[type]}*_\n`
+        types_msg+=`${flc(type)}: *${types[type]}*\n`
     } 
-    final_msg+=`_Participant: *+${user.split("@")[0]}*_\n_Name: *${name}*_\n_Total msgs: *${count}*_\n_Last msg: *${lastMsg}*_${types_msg}\n\n`
+    final_msg+=`Participant: *+${user.split("@")[0]}*\nName: *${name}*\nTotal msgs: *${count}*\nLast msg: *${lastMsg}*${types_msg}\n\n`
 }
 }
 return await m.sendReply(final_msg)
@@ -478,12 +478,12 @@ Module({
     var jids = [];
     var mn = '';
     for (var i in participants){
-    mn += (parseInt(i)+1)+'. @' + participants[i].id.split('@')[0] + '\n';
+    mn += '@' + participants[i].id.split('@')[0] + '\n';
         jids.push(participants[i].id.replace('c.us', 's.whatsapp.net'));
     };
-    var msg = mn
+    var msg = message.reply_message.message || mn
     await message.client.sendMessage(message.jid, {
-        text: '```'+msg+'```',
+        text: msg,
         mentions: jids
     })
 }}))
